@@ -1,18 +1,23 @@
+import { motion } from "motion/react";
+
 function ImagePanel({ image }) {
   return (
-    <div className="rounded-3xl bg-white shadow-lg p-6">
-
-      <h2 className="text-2xl font-bold mb-5">
+    <motion.div
+      initial={{ opacity: 0, x: -40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      className="rounded-3xl bg-white p-6 shadow-lg"
+    >
+      <h2 className="mb-5 text-2xl font-bold">
         Uploaded Fabric
       </h2>
 
       <img
         src={image}
         alt="Fabric"
-        className="rounded-2xl w-full max-h-[500px] object-contain"
+        className="w-full max-h-[500px] rounded-2xl object-contain"
       />
-
-    </div>
+    </motion.div>
   );
 }
 

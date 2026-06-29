@@ -10,8 +10,12 @@ function ConfidenceGauge({ value }) {
     circumference - (value / 100) * circumference;
 
   return (
-    <div className="flex flex-col items-center justify-center">
-
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="flex flex-col items-center justify-center"
+    >
       <svg
         width="220"
         height="220"
@@ -48,7 +52,6 @@ function ConfidenceGauge({ value }) {
       </svg>
 
       <div className="-mt-36 text-center">
-
         <p className="text-slate-500">
           Confidence
         </p>
@@ -56,10 +59,8 @@ function ConfidenceGauge({ value }) {
         <h2 className="text-5xl font-black text-blue-600">
           {value}%
         </h2>
-
       </div>
-
-    </div>
+    </motion.div>
   );
 }
 
