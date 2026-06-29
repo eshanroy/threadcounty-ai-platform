@@ -24,6 +24,7 @@ function AnalyzeButton() {
     setIsAnalyzing(true);
 
     const result = await analyzeFabric(selectedFile);
+    console.log(result);
 
     setAnalysisResult(result);
     setUploadedImage(URL.createObjectURL(selectedFile));
