@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Container from "../../components/common/Container";
 
 import StatsCards from "../../components/dashboard/StatsCards";
@@ -23,12 +23,10 @@ function DashboardPage() {
 
   if (!dashboardData) {
     return (
-      <Container className="py-20">
-        <h2 className="text-center text-3xl font-bold">
-          Loading Dashboard...
-        </h2>
-      </Container>
-    );
+  <Container className="py-20">
+    <LoadingSpinner text="Loading Dashboard..." />
+  </Container>
+);
   }
 
   return (
