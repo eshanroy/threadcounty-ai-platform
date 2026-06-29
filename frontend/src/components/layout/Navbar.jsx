@@ -59,16 +59,9 @@ function Navbar() {
   </li>
 
   <li>
-    <NavLink
-      to="/history"
-      className={({ isActive }) =>
-        isActive
-          ? "text-blue-600 font-semibold"
-          : "hover:text-blue-600 transition"
-      }
-    >
-      History
-    </NavLink>
+    <NavLink to="/history">
+  History
+</NavLink>
   </li>
 
   <li>
