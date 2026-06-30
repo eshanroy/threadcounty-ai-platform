@@ -4,8 +4,8 @@ function SearchBar({ value, onChange }) {
   return (
     <div className="relative">
       <Search
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
         size={20}
+        className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
       />
 
       <input
@@ -13,7 +13,24 @@ function SearchBar({ value, onChange }) {
         placeholder="Search by weave type..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-12 pr-4 shadow-sm outline-none transition focus:border-blue-500"
+        className="
+          w-full
+          rounded-2xl
+          border
+          border-slate-200
+          bg-white
+          py-4
+          pl-14
+          pr-5
+          text-lg
+          shadow-sm
+          transition-all
+          duration-300
+          outline-none
+          focus:border-blue-500
+          focus:ring-4
+          focus:ring-blue-100
+        "
       />
     </div>
   );
