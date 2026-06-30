@@ -9,12 +9,15 @@ app = FastAPI(
     description="Backend API for AI-powered textile analysis."
 )
 
+origins = [
+    "http://localhost:5173",
+    "https://threadcounty-ai-platform-nine.vercel.app",
+    "https://threadcounty-ai-platform-git-main-eshan-roy-s-projects.vercel.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://YOUR_VERCEL_URL.vercel.app",
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
