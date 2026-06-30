@@ -1,17 +1,7 @@
-# Python
+frontend/node_modules/
+frontend/dist/
 backend/venv/
+backend/uploads/
 __pycache__/
 *.pyc
-
-# Uploads
-backend/uploads/
-
-# Node
-frontend/node_modules/
-
-# Build
-frontend/dist/
-
-# Environment
 .env
-.env.local
