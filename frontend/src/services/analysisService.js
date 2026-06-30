@@ -1,14 +1,17 @@
-import api from "./api";
+const API_URL = "http://127.0.0.1:8000";
 
 export async function analyzeFabric(file) {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await api.post("/analyze/", formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
+  const response = await fetch(`${API_URL}/analyze/`, {
+    method: "POST",
+    body: formData,
   });
 
-  return response.data;
+  if (!response.ok) {
+    throw new Error("Failed to analyze fabric.");
+  }
+
+  return await response.json();
 }

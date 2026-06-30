@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import Container from "../../components/common/Container";
+import LoadingSpinner from "../../components/common/LoadingSpinner";
 import SearchBar from "../../components/history/SearchBar";
 import HistoryTable from "../../components/history/HistoryTable";
 import HistoryEmpty from "../../components/history/HistoryEmpty";
@@ -10,11 +11,18 @@ import { getHistory } from "../../services/historyService";
 function HistoryPage() {
   const [history, setHistory] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadHistory() {
-      const data = await getHistory();
-      setHistory(data);
+      try {
+        const data = await getHistory();
+        setHistory(data);
+      } catch (error) {
+        console.error("Failed to load history:", error);
+      } finally {
+        setLoading(false);
+      }
     }
 
     loadHistory();
@@ -25,6 +33,14 @@ function HistoryPage() {
       item.weaveType.toLowerCase().includes(search.toLowerCase())
     );
   }, [history, search]);
+
+  if (loading) {
+    return (
+      <Container className="py-20">
+        <LoadingSpinner text="Loading Analysis History..." />
+      </Container>
+    );
+  }
 
   return (
     <section className="min-h-screen bg-slate-100 py-16">

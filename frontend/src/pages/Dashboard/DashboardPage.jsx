@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Container from "../../components/common/Container";
-
+import { testConnection } from "../../services/supabaseTest";
 import StatsCards from "../../components/dashboard/StatsCards";
 import ConfidenceChart from "../../components/dashboard/ConfidenceChart";
 import WeaveChart from "../../components/dashboard/WeaveChart";
@@ -13,13 +13,15 @@ function DashboardPage() {
   const [dashboardData, setDashboardData] = useState(null);
 
   useEffect(() => {
-    async function loadDashboard() {
-      const data = await getDashboardData();
-      setDashboardData(data);
-    }
+  async function loadDashboard() {
+    const data = await getDashboardData();
+    setDashboardData(data);
 
-    loadDashboard();
-  }, []);
+    await testConnection();
+  }
+
+  loadDashboard();
+}, []);
 
   if (!dashboardData) {
     return (

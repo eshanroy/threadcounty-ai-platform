@@ -9,11 +9,11 @@ def to_camel(string: str) -> str:
 
 class AnalysisResponse(BaseModel):
     filename: str
-    weave_type: str
-    thread_density: str
+    weaveType: str
+    threadDensity: str
     confidence: float
     quality: str
-    ai_insights: List[str]
+    aiInsights: List[str]
 
     model_config = ConfigDict(
         alias_generator=to_camel,

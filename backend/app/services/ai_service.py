@@ -9,11 +9,11 @@ def analyze_fabric(filename: str) -> AnalysisResponse:
 
     return AnalysisResponse(
         filename=filename,
-        weave_type="Plain Weave",
-        thread_density="92 × 88",
+        weaveType="Plain Weave",
+        threadDensity="92 × 88",
         confidence=98.4,
         quality="Excellent",
-        ai_insights=[
+        aiInsights=[
             "Uniform weave detected.",
             "High fabric consistency.",
             "No visible defects.",
