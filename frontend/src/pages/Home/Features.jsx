@@ -6,10 +6,8 @@ import { FEATURES } from "../../data/constants";
 
 function Features() {
   return (
-    <section className="py-28 bg-white">
-
+    <section className="bg-white py-28">
       <Container>
-
         <SectionTitle
           badge="Platform Features"
           title="Everything You Need for Textile Intelligence"
@@ -17,7 +15,6 @@ function Features() {
         />
 
         <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-
           {FEATURES.map((feature) => (
             <FeatureCard
               key={feature.title}
@@ -26,11 +23,8 @@ function Features() {
               description={feature.description}
             />
           ))}
-
         </div>
-
       </Container>
-
     </section>
   );
 }
